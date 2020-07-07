@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin:0;
+  padding:0;
+}
+body > * {
+  flex: 1;
+  overflow-y: scroll;
+}
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 8vh;
+}
+textarea[name=results] {
+  height: 40vh;
+}
+
+#editor > * {
+  height: 50vh;
+}
+
+
+#simpbox * {
+  margin: 0;
+  position: relative;
+}
+#simpbox span, a {
+  border: 2px solid red;
+  padding: 2px;
+}
+
+#simpbox div {
+  padding: 18px 5px;
+  border: 2px solid black;
+}
+
+#simpbox i,
+#simpbox label {
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 10px;
+  height: 10px;
+  padding: 2px;
+}
+#simpbox label {
+  position: absolute; left:0; top:0;
+  background: black;
+  color: white;
+}
+
+#simpbox i {
+  background: #8df;
+  font-style: normal;
+  display: block;
+  font-weight: bold;
+}
+
+
+i:hover ~ div,
+label:hover ~ div {
+  background: lime !important;
+}
