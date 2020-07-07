@@ -128,3 +128,23 @@ catch (e) {
 
 return ex;
 ```
+
+## Sentry error notification
+
+```js
+let ex = {};
+
+try {
+  simp.start();
+  ex.project = simp.find('New alert from').content().match(/New alert from (.*)/)[1];
+  ex.url = simp.find('View on Sentry').link();
+  ex.timestamp = simp.find('ID:').next().content();
+  ex.stackTrace = simp.find('Exception').next().content();
+}
+catch (e) {
+  console.error(e);
+  throw e;
+}
+
+return ex;
+```
