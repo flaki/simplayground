@@ -4,7 +4,11 @@ This is a prototype that allows you to play with `simp`, a library intended to s
 
 Think of it as a sort of jQuery-for-HTML-email, but not so much focused on *authoring* HTML but *extracting* relevant information from it.
 
-No HTML sources are supplied right now (you will need to use your own inbox to source some), but here are some example `action`-s (parsers) for a couple interesting kind of email content:
+No HTML sources are supplied right now (you will need to use your own inbox to source some), but here are some example `action`-s (parsers) for a couple interesting kind of email content.
+
+A picture is worth a thousand words so here's the Twitch live notification parser in *action*:
+
+![Screenshot with a Twitch live notification being parsed in the SimPlayground](https://flaki.github.io/simplayground/assets/docs/simplayground-twitch-example.png)
 
 ## Twitch "XY just went live!" notifications
 
