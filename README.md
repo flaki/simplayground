@@ -140,10 +140,10 @@ let ex = {};
 
 try {
   simp.start();
-  ex.project = simp.find('New alert from').content().match(/New alert from (.*)/)[1];
+  ex.project = simp.continue().tryFind('New alert from').content().match(/New alert from (.*)/)[1];
+  ex.timestamp = simp.continue().tryFind('ID').next().content();
+  ex.stackTrace = simp.continue().tryFind('Exception').next().content();
   ex.url = simp.find('View on Sentry').link();
-  ex.timestamp = simp.find('ID:').next().content();
-  ex.stackTrace = simp.find('Exception').next().content();
 }
 catch (e) {
   console.error(e);
