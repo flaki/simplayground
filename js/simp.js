@@ -24,6 +24,9 @@ class SIMP {
   find(stringOrRegex) {
     return this.start().find(stringOrRegex);
   }
+  tryFind(stringOrRegex) {
+    return this.start().tryFind(stringOrRegex);
+  }
   after(stringOrRegex) {
     return this.start().find(stringOrRegex).next();
   }
