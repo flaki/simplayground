@@ -52,7 +52,8 @@ class SIMPState {
     // withinBlock: don't search past the current block (prefix) boundary
     let { noThrow, lookAhead, withinBlock } = opts;
 
-    noThrow = lookAhead;
+    // Implicitly turn on noThrow if this is a lookAhead
+    noThrow = noThrow || lookAhead;
 
     const match = makeMatcher(stringOrRegex);
 
