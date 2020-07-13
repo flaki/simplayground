@@ -82,7 +82,14 @@ class SIMPState {
     let matched;
     for (let i=this.ptr; i<this.simpent.length; i++) {
       const e=this.simpent[i];
-      const matchStr = e.rem || e.c || '';
+
+      let matchStr = '';
+      if (e.rem) {
+        matchStr = e.rem;
+      } else if (e.c) {
+        matchStr = typeof e.c == 'string' ? e.c : (e.c.rem || '');
+      }
+      //TODO: sometimes comments end up in e.c.rem, see if we can fix it?
 
       if (boundary && !e.pre.startsWith(boundary)) break;
 
@@ -340,5 +347,5 @@ function makeMatcher(stringOrRegex) {
     return (str) => stringOrRegex.test(str);
   }
 
-  return (str) => str.includes(stringOrRegex);
+  return (str) => typeof str == 'string' && str.includes(stringOrRegex);
 }
