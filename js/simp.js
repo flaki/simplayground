@@ -135,6 +135,17 @@ class SIMPState {
 
     throw new Error('end of content reached');
   }
+  nextLink(stringOrRegex) {
+    const match = makeMatcher(stringOrRegex);
+
+    while (this.ptr<this.simpent.length) {
+      this.ptr+=1;
+      const emt = this.simpent[this.ptr];
+      if (emt.link && match(emt.link)) return this;
+    }
+
+    throw new Error('end of content reached');
+  }
   nextBlock() {
     const prefix = this.simpent[this.ptr].pre;
     console.log(this.simpent.map(r => r.pre).join('\n'))
