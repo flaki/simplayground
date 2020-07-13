@@ -22,6 +22,10 @@ class SIMP {
     if (this.dom.body) {
       this.simp = listRecurse(this.dom.body);
 
+    // Bare <body> content
+    } else if (this.dom.childNodes[0] && this.dom.childNodes[0].nodeName == 'BODY') {
+      this.simp = listRecurse(this.dom.childNodes[0]);
+
     // Bare HTML string
     } else if (this.dom.childNodes.length) {
       this.simp = listRecurse(this.dom);
