@@ -15,8 +15,21 @@ const CONTAINER_ELEMENTS= [
 class SIMP {
   constructor(html) {
     this.html = html;
-    this.doc = new DOM(html);
-    this.simp = listRecurse(this.doc.body);
+
+    this.dom = new DOM(html);
+
+    // Proper full HTML document
+    if (this.dom.body) {
+      this.simp = listRecurse(this.dom.body);
+
+    // Bare HTML string
+    } else if (this.dom.childNodes.length) {
+      this.simp = listRecurse(this.dom);
+
+    // Unrecognized format
+    } else {
+      this.simp = [];
+    }
   }
   render() {
     return render(this.simp);
